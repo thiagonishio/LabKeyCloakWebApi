@@ -45,7 +45,7 @@ namespace Exemplo.Identidade.API.Controllers
 
             var client = new HttpClient();
 
-            var response = await client.PostAsync($"{_config["Jwt:Authority"]}/protocol/openid-connect/token", contentData);
+            var response = await client.PostAsync($"{_config["Jwt:Authority"]}/{_config["Jwt:Realm"]}/protocol/openid-connect/token", contentData);
 
             var responseString = await response.Content.ReadAsStringAsync();
             var responseToken = JsonConvert.DeserializeObject<ResponseToken>(responseString);

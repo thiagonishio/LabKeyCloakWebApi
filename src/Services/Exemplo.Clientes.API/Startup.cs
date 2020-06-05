@@ -53,7 +53,7 @@ namespace Exemplo.Clientes.API
 
             }).AddJwtBearer(o =>
             {
-                o.Authority = Configuration["Jwt:Authority"];
+                o.Authority = $"{Configuration["Jwt:Authority"]}/{Configuration["Jwt:Realm"]}";
                 o.Audience = Configuration["Jwt:Audience"];
 
                 // Deve ativar em produção!!!!
